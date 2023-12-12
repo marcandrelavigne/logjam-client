@@ -1,12 +1,12 @@
 import React, { useRef, useState, useCallback, useContext } from 'react'
-import { Context } from '../utils/contexts/search-context'
+import { SearchContext } from '../utils/contexts/search-context'
 import debounce from 'lodash.debounce'
 import { searchGame } from '../utils/helpers/search'
 
 const SearchForm = props => {
   const input = useRef(null)
   const [loading, setLoading] = useState(false)
-  const { query, modal, result } = useContext(Context)
+  const { query, modal, result } = useContext(SearchContext)
   const [searchQuery, setSearchQuery] = query
   const [searchModalOpen, setSearchModalOpen] = modal
   const [searchResults, setSearchResults] = result
@@ -15,18 +15,20 @@ const SearchForm = props => {
   const triggerSearch = e => {
     e.preventDefault()
     let query = input.current.value
-    setLoading(true)
-    setSearchQuery(query)
-    searchGame(query)
-      .then(data => {
-        setSearchModalOpen(true)
-        setSearchResults(data)
-        setLoading(false)
-      })
-      .catch(function () {
-        // TODO: Display error message
-        setLoading(false)
-      })
+    if (query !== '') {
+      setLoading(true)
+      setSearchQuery(query)
+      searchGame(query)
+        .then(data => {
+          setSearchModalOpen(true)
+          setSearchResults(data)
+          setLoading(false)
+        })
+        .catch(function () {
+          // TODO: Display error message
+          setLoading(false)
+        })
+    }
   }
 
   // Auto-trigger the search action when user stops writing

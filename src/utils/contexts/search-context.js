@@ -4,7 +4,7 @@ const defaultState = {
   searchModalOpen: false,
   searchResults: null
 }
-export const Context = createContext(defaultState)
+export const SearchContext = createContext(defaultState)
 
 const SearchContextProvider = props => {
   const [searchQuery, setSearchQuery] = useState(null)
@@ -12,13 +12,13 @@ const SearchContextProvider = props => {
   const [searchResults, setSearchResults] = useState(null)
 
   return (
-    <Context.Provider value={{
+    <SearchContext.Provider value={{
       query: [searchQuery, setSearchQuery],
       modal: [searchModalOpen, setSearchModalOpen],
       result: [searchResults, setSearchResults]
     }}>
       {props.children}
-    </Context.Provider>
+    </SearchContext.Provider>
   )
 }
 

@@ -4,15 +4,10 @@ import Nav from './components/Nav'
 import Modal from './components/Modal'
 import SearchForm from './components/SearchForm'
 import SearchContextProvider from './utils/contexts/search-context'
+import List from './components/List'
 
 const App = props => {
   const [gameList, setGameList] = useState(null)
-
-  useEffect(() => {
-    /* fetch('/games')
-      .then((response) => response.json())
-      .then(data => setGameList(data.data)) */
-  }, [])
 
   return (
     <>
@@ -24,8 +19,11 @@ const App = props => {
         </SearchContextProvider>
       </Nav>
       <main>
-        Hello
+        <List type='playlist' />
       </main>
+      <Nav className="w-full fixed z-10 h-16 bottom-0 bg-red-600 p-4 flex justify-between">
+        app nav
+      </Nav>
     </>
   )
 }
