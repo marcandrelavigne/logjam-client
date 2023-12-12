@@ -1,0 +1,15 @@
+{
+  "actions": {
+    "close": "Close"
+  },
+  "searchForm": {
+    "inputPlaceholder": "Search...",
+    "formButtonLabel": "Search",
+    "formButtonLoading": "Loading"
+  },
+  "searchModal": {
+    "modalTitle": "Searching for:",
+    "resultPlur": "results",
+    "resultSing": "result"
+  }
+}

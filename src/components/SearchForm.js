@@ -37,21 +37,29 @@ const SearchForm = props => {
   )
 
   return (
-    <form onSubmit={triggerSearch}>
+    <form
+      onSubmit={triggerSearch}
+      className='flex'
+    >
       <input
         ref={input}
         type='text'
         placeholder='Search...'
         onChange={handleChange}
+        className='px-4 py-1'
       />
-      <input
-        type='button'
-        value='Search'
+      <button
         onClick={triggerSearch}
-      />
-      {loading && (
-        <span>Loading...</span>
-      )}
+        className='bg-primary text-white px-6 w-40'
+      >
+        <span>
+          {loading ? (
+            <>Loading...</>
+          ) : (
+            <>Search</>
+          )}
+        </span>
+      </button>
     </form>
   )
 }

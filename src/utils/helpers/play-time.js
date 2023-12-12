@@ -9,8 +9,8 @@
 
 export function playTime(main, extra) {
   let gameTime = 0
-  let mainTime = Math.round((main / 3600) * 4) / 4
-  let extraTime = Math.round((extra / 3600) * 4) / 4
+  let mainTime = main
+  let extraTime = extra
 
   if (extraTime !== 0 && extraTime > mainTime) {
     gameTime = `${mainTime}h - ${extraTime}h`

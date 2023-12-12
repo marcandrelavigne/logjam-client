@@ -15,7 +15,7 @@ const App = props => {
         <Logo />
         <SearchContextProvider>
           <SearchForm />
-          <Modal className="fixed top-16 left-0 w-full bg-slate-400/60 backdrop-blur-sm" />
+          <Modal className="fixed h-full top-16 left-0 w-full bg-slate-400/60 backdrop-blur-sm" />
         </SearchContextProvider>
       </Nav>
       <main>

@@ -15,25 +15,27 @@ const Modal = props => {
   }
 
   return (
-    searchModalOpen && (
-      <div className={props.className}>
-        <header className='container mx-auto flex items-center flex-col p-4 relative'>
-          <h2 className='text-xl font-bold'>Searching for: {searchQuery}</h2>
-          <span className=''>{searchResults.count} results</span>
-          <button
-            className='absolute right-0 top-0'
-            onClick={() => closeModal()}
-          >
-            Close
-          </button>
-        </header>
-        <div className='container mx-auto h-[calc(100vh-212px)] overflow-scroll space-y-8'>
-          {searchResults && searchResults.data.map(game =>
-            <GameCard game={game} />
-          )}
+    <>
+      {searchModalOpen && (
+        <div className={props.className}>
+          <header className='container mx-auto flex items-center flex-col p-4 relative'>
+            <h2 className='text-xl font-bold'>Searching for: {searchQuery}</h2>
+            <span className=''>{searchResults?.length} results</span>
+            <button
+              className='absolute right-0 top-0'
+              onClick={() => closeModal()}
+            >
+              Close
+            </button>
+          </header>
+          <div className='container mx-auto overflow-x-hidden overflow-scroll space-y-8 h-[calc(100%-14.8rem)] pb-8'>
+            {searchResults?.map(game =>
+              <GameCard game={game} />
+            )}
+          </div>
         </div>
-      </div>
-    )
+      )}
+    </>
   )
 }
 
